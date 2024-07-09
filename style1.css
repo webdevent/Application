@@ -1,0 +1,166 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: white;
+    overflow-x: hidden;
+}
+
+.top-header {
+    background-color: white;
+    padding: 10px;
+    margin: 0px;
+    border-bottom: 1px solid #222222;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+
+.top-header ul {
+    list-style-type: none;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.top-header ul li {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.top-header a {
+    color: #313131;
+    text-decoration: none;
+}
+
+.sechead {
+    background-image: url(./pictures/headerimg.jpg);
+    color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+    height: 50vh;
+    display: block;
+}
+
+.apply {
+    background-color: rgb(48, 48, 173);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    margin: 0px;
+    position: sticky;
+    top: 100px;
+}
+
+.apply:hover {
+    background-color: white;
+    color: rgb(48, 48, 173);
+}
+
+.apply:active {
+    transform: scale(0.5);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.container ul li {
+    margin:10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px; /* width of the scrollbar */
+    height: 10px; /* height of the scrollbar */
+    background-color: #313131; /* background color of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #666; /* color of the scrollbar thumb */
+    border-radius: 10px; /* rounded corners of the scrollbar thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #45adbb; /* hover color of the scrollbar thumb */
+  }
+
+.drop-menu {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .logo {
+        width: 100px;
+    }
+    .drop-menu {
+        display: block;
+    }
+    nav {
+        display: none;
+        background: linear-gradient(white, rgb(8, 199, 199));
+    }
+    nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+   .top-header a {
+       color:rgb(22, 138, 61);
+    }
+    .sechead {
+       width: 98%;
+    }
+    .container {
+       margin: 0px;
+       width: 90%;
+       padding: 5px;
+    }
+    .apply {
+    }
+    h1 {
+        font-size: 20px;
+        width: 100%;
+    }
+    p {
+        font-size: 13px;
+        width: 100%;
+    }
+    .skills, .resp-list {
+        display: block;
+        font-size: 13px;
+        width: 100%;
+        padding: 10px;
+    }
+    h2 {
+        font-size: 20px;
+        width: 100%;
+    }
+    h3 {
+        font-size: 15px;
+        width: 100%;
+    }
+    .top-header {
+        width: 90%;
+    }
+    .active {
+        display: block;
+    }
+}

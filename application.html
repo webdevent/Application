@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Application Form</title>
+    </head>
+    <body>
+        
+        <div class="container">
+            <form id="application-form">
+                <label>Enter First Name</label><input required type="text" name="First name" placeholder="Enter Your Frist Name"><br><br>
+                <label>Enter Last Name</label><input required type="text" name="Last name" placeholder="Enter Your Last Name"><br><br>
+                <label>Enter Email</label><input required type="email" name="Email" id="email" placeholder="Enter Your Email" onclick="checkEmail()">
+                <p class="invalid">This is not an valid Email<p>
+                <label>Enter Country</label>
+                <select name="Select country" id="dropdown" onclick="areaCode()">
+                    <option value="Select Country">Select Country</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="JAM">JAM</option>
+                </select><br><br>
+                <label>Enter Address</label><input required type="text" name="Address" placeholder="Enter Your Address"><br><br>
+                <label>Enter City</label><input type="text" name="City" placeholder="Enter City"><br><br>
+                <label>Enter State</label><input required type="text" name="State" placeholder="Enter Your State"><br><br>
+                <label>Enter Zip Code</label><input required type="text" name="Zip Code" placeholder="Enter Your Zip Code"><br><br>
+                <label>Enter Phone Number</label><input required type="number" name="phone-number" id="number" placeholder="Enter Your Phone Number"><br><br>
+                <label>Enter Gender</label>
+                <select required name="Gender">
+                  <option>Select Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>wish not to say</option>
+                </select><br><br>
+                <label>Enter Age</label><input required type="input" name="Enter Age" id="age"><br><br>
+                <label>Enter Marital Status</label>
+                <select name="Marital Status">
+                  <option>Select Marital Status</option>
+                  <option>Single</option>
+                  <option>Married</option>
+                  <option>Widowed</option>
+                  <option>Complicated</option>
+                </select><br><br>
+                <label>Are you currently Employeed?</label>  
+                <input type="radio" name="Employeed" value="Yes" onclick="employCheck()">Yes 
+                <input type="radio" name="Employeed" value="No" onclick="employCheck()">No<br><br>
+                <div class="occu" style="display: none;">
+                  <label>Enter Occupation</label><input  type="text" name="Occupation" placeholder="Enter Your Occupation"><br><br>
+                <label>Enter Annual Income</label><input type="number" name="Annual" placeholder="Enter Your Name"><br><br>
+                </div>
+                <label>Enter Education</label>
+                <select name="Education">
+                    <option value="Select Education">Select Education</option>
+                    <option value="10th">10th</option>
+                    <option value="12th">12th</option>
+                    <option value="Graduate">Graduate</option>
+                    <option value="Post Graduate">Post Graduate</option>
+                    <option value="Bachelor">Bachelor's Degree</option>
+                </select><br><br>
+                <button id="submit">Submit</button>
+            </form>
+        </div>
+        <script>
+            const form = document.getElementById('application-form');
+const submitButton = document.getElementById('submit');
+const phoneNumber = document.getElementById('number');
+const country = {
+  'India': +91,
+  'USA': +1267,
+  'UK': +44,
+  'JAM': +1876
+}
+
+function areaCode(){
+  const countrySelected = document.getElementById("dropdown").value;
+  const areaCode = country[countrySelected];
+  phoneNumber.value = areaCode;
+  console.log(areaCode);
+  return areaCode;
+}
+
+
+
+function employCheck() {
+  const employ = document.querySelector('input[name="Employeed"]:checked').value;
+  if (employ === 'Yes') {
+    document.querySelector('.occu').style.display = 'block';
+    } else {
+      document.querySelector('.occu').style.display = 'none';
+    }
+}
+
+
+
+
+submitButton.addEventListener('click', (e) => {
+  e.preventDefault(); // prevent default form submission
+    if (validateForm()) {
+      collectFormData();
+    } else {
+      alert('Please complete the form before submitting!');
+    }
+});
+
+function validateForm() {
+  const formElements = form.elements;
+  let isValid = true;
+
+  for (let i = 0; i < formElements.length; i++) {
+    const element = formElements[i];
+    if (element.required) {
+      isValid = false;
+      break;
+    }
+  }
+
+  const email = document.getElementById('email').value;
+  const validText = document.querySelector('.invalid');
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(email)) {
+    isValid = false;
+    document.getElementById('email').style.border = '1px solid red';
+    document.querySelector('.invalid').style.display = 'block';
+  } else if (email.value==='') {
+    isValid = false;
+    validText.innerHTML = 'Please Enter your Email';
+  } else {
+    document.querySelector('.invalid').style.display = 'none';
+    isValid = true;
+  }
+
+  return isValid;
+  }
+
+const formData = {};
+console.log(formData);
+function collectFormData() {
+    const formData = {};
+    const formElements = form.elements;
+  
+    for (let i = 0; i < formElements.length; i++) {
+    const element = formElements[i];
+    if (element.type === 'radio' || element.type === 'checkbox') {
+      if (element.checked) {
+        formData[element.name] = element.value;
+      }
+    } else if (element.tagName === 'SELECT') {
+      formData[element.name] = element.value;
+    } else {
+      formData[element.name] = element.value;
+    }
+  }
+  
+    // Store the form data in local storage (optional)
+    localStorage.setItem('formData', JSON.stringify(formData));
+  // Redirect to the display page
+  window.location.href = 'displayin.html';
+}
+        </script>
+    </body>
+</html>

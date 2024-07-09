@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    background-image: url(./pictures/bk.jpg);
+    background-size: contain;
+    flex-direction: column;
+    align-items: center;
+ }
+
+.info {
+    border: 1px solid white;
+    padding: 10px;
+    max-width: 500px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+ul {
+    list-style: none;
+}
+
+.info li {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    margin: 10px;
+}
+
+.info p {
+    color: white;
+    font-size: 20px;
+    display: inline-block;
+}
+
+#submit {
+    background-color: rgba(49, 143, 143, 0.842);
+    color: white;
+    font-size: 20px;
+    font-weight: 200px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    align-content: center;
+    margin: auto;
+}
+
+#submit:hover {
+    background-color: rgba(45, 172, 172, 0.842);
+}
+
+#submit:active {
+   transform: scale(0.5);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: linear-gradient(pink, blue, rgb(76, 76, 201));
+}
+::-webkit-scrollbar-thumb {
+    background: #504f4f;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(rgb(55, 55, 243), rgb(76, 76, 201), pink)
+}

@@ -1,0 +1,90 @@
+body {
+   display: flex;
+    justify-content: center;
+    background-image: url(./pictures/bk.jpg);
+    background-size: contain;
+}
+
+#application-form {
+    color: white;
+}
+
+#age {
+    width: 20px;
+}
+
+.container {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.container label {
+    margin: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 200px;
+}
+
+.container input {
+    padding: 5px;
+    font-size: 15px;
+    border: none;
+}
+
+
+select {
+    width: 50%;
+    height: 25px;
+    padding: 5px;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    background-color: #504f4f;
+    color: white;
+}
+ 
+.invalid {
+    display: none;
+    color: red;
+    margin-top: 0px;
+}
+
+#submit {
+    background-color: rgba(49, 143, 143, 0.842);
+    color: white;
+    font-size: 20px;
+    font-weight: 200px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    align-items: center;
+    margin: auto;
+}
+
+#submit:hover {
+    background-color: rgba(45, 172, 172, 0.842);
+    transform: rotate(50deg);
+}
+
+#submit:active {
+   transform: scale(0.5);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: linear-gradient(pink, blue, rgb(76, 76, 201));
+}
+::-webkit-scrollbar-thumb {
+    background: #504f4f;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(rgb(55, 55, 243), rgb(76, 76, 201), pink)
+}

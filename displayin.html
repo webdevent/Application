@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Application</title>
+        <link rel="stylesheet" href="displayin.css">
+    </head>
+    <body>
+        <h1 style="color: white;">Application Information</h1>
+        <div class="info">
+            <div id="display-data"></div>
+            <button id="submit">Submit Application</button>
+        </div>
+        <script>
+        const displayDataDiv = document.getElementById('display-data');
+
+            // Retrieve the form data from local storage (if stored)
+            const formData = JSON.parse(localStorage.getItem('formData'));
+            const list = document.createElement('ul');
+            // Display the form data
+            Object.keys(formData).forEach((key) => {
+                const value = formData[key];
+    const listItem = document.createElement('li');
+    listItem.textContent = `${key}: ${value}`;
+    list.appendChild(listItem);
+  });
+
+  displayDataDiv.appendChild(list);
+        </script>
+    </body>
+</html>
